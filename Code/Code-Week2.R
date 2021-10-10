@@ -1,11 +1,5 @@
 #Homework Week 1
-#Create a vector of 100 random numbers between 0 and 50
-my_vec <- runif(n=100, min=0, max=50)
-my_vec
 
-#sort the vector values
-sorted_vec <- sort(my_vec, decreasing = TRUE)
-sorted_vec
 
 #Function logarithm (base 10) of a vector 
 Lfunction <- function (my_vec){
