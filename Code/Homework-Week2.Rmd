@@ -27,7 +27,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-```{r}
+```{r,eval = FALSE}}
 ##This code will be run and shown in the Rmarkdown
 ##Assigning values to objects
 a <- 1
