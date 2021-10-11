@@ -1,0 +1,170 @@
+---
+title: "Homework2"
+author: "Diana Perez"
+date: "11/10/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+---
+title: "Homework 2"
+author: "Diana Perez"
+date: "11/10/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+##Start of homework
+
+```{r,eval = FALSE}
+##this code will NOT be run but will be shown
+
+##Basic calculations
+1+1  #Add
+2-4  #Substract
+12/3  #Divide
+2*4   #Multiply
+3^2   #Power
+3*(1+2) #Pharentesis
+
+## R uses standard mathematical order of opertions/precendence (1.Exponents, 2. Multiplication and Division, 3. Addition and Substraction)
+
+```
+
+
+```{r,eval = FALSE}}
+##This code will be run and shown in the Rmarkdown
+##Assigning values to objects
+a <- 1
+d <- 10
+h <-  (1+3)^2 - (1/3)(2)
+
+##Vectors
+a <- c(1,2,3,4,5) #Numeric Vector
+
+b <- c(6,7,8,9,10) #Numeric Vector
+
+length(a) ##Length of the vector of number
+
+c(a,b) #combine vectors into a new vector
+
+q <- c(10,8,9,7,b,3) #Make a new vector that includes other vector
+
+q[2] #Second value of the vector
+
+b[c(3,5)] #return value third and fifth of the vector
+
+f <- a * 4 #Multiply a vector
+
+my vec <- c(1,3,2)
+names(my_vec) <- c("a", "b", "c") ##assign names to the vector using the names() function
+
+sorted_vec <- sort(my_vec) #Sort the values in the vector
+
+sorted_vec <- sort(my_vec, decreasing = TRUE) #Sort the values of the vector by decreasing
+
+##runif fuction runif(n,min,max) ; it generates uniformly distributed random numbers
+
+x <- runif(10, 0, 20)
+x < 5 #Logical argument
+
+x[x>13] #return only the numbers from the vector which are greater than 13
+
+mean(x) ##Mean function
+
+round(c(1.243,2.567,3.657)) #round the values in the vector
+
+```
+
+##Programing 
+```{R ,eval = FALSE}
+##this code will NOT be run but will be shown}
+
+#For loop
+for(variable in sequence){
+  #Do something
+}
+##For examples
+
+for(i in 1:10){
+  x1 <- i^2
+  print(x1)
+}
+
+x2 <- c("Max", "Tina", "Lindsey", "Anton")
+
+for(i in x2) {
+  print(paste("The name," i, "consists of", nchar(i), "characters.")
+}
+
+##IF 
+
+if(condition) {
+  #Do something
+} else {
+  #Do something different
+}
+
+for(i in 1:10) {
+  x5 <- i^2
+  print(x5)
+  
+  if(i>=5){
+    break
+  }
+}
+
+if(i>3){
+  print("yes")
+} else {
+  print("No")
+}
+
+##Creating a new function
+function_name <- function(var){
+  #Do something
+  return(new_variable)
+}
+
+##Example of a function
+square <- function(x){
+  squared <- x*x
+  return(squared)
+}
+
+#Matrix function
+m <- matrix(x, nrow, ncol)
+
+#List
+l <- list(x=1:5)
+
+#Reading data
+df <-read.table("file.txt")
+df <- read.csv("file.csv")
+
