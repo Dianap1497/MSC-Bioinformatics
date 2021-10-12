@@ -73,3 +73,10 @@ Max_function <- function(vec1)
 }
 
 Max_function(vec1)
+
+##different way to revert
+a <- 10
+b <- 20
+c <- a+b
+d <- b-a
+
