@@ -1,0 +1,55 @@
+---
+title: "Homework 3 - Joining Data Frames"
+author: "Diana Perez"
+date: "19/10/2021"
+output:
+  pdf_document: default
+  html_document: default
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+```{r}
+##First we loaded the library that will allow us to import the files
+##Used the link of Raw from Github
+
+library(vroom)
+library(dplyr)
+library(tidyr)
+sort_pop1 <- vroom("https://raw.githubusercontent.com/chrit88/Bioinformatics_data/master/Workshop%203/to_sort_pop_1.csv")
+sort_pop2 <- vroom("https://raw.githubusercontent.com/chrit88/Bioinformatics_data/master/Workshop%203/to_sort_pop_2.csv")
+
+#visualizing information about the datas
+dim(sort_pop1)
+dim(sort_pop2)
+
+##Joining two dataframes 
+## Natural join or Inner Join: To keep only rows that match from the data frames, specify the argument all=FALSE.
+## Full outer join or Outer Join:To keep all rows from both data frames, specify all=TRUE.
+## Left outer join or Left Join:To include all the rows of your data frame x and only those from y that match, specify x=TRUE.
+## Right outer join or Right Join:To include all the rows of your data frame y and only those from x that match, specify y=TRUE.
+
+#full_join to maintain all rows from both data frames
+sort_pop1 %>%
+  full_join(sort_pop2, by="species")
+  
+#re-shaping wide to long format
+##our data frame
+long <- sort_pop1 %>%
+  ##and then apply this function 
+  pivot_longer(cols = -c(species:tertiary_threat),
+               names_to = "population date",
+               values_to = "abundance")
+long
+
+```
